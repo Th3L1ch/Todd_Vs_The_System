@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todd vs The System", "Todd vs The System.csproj", "{8EF17020-CA55-A320-587A-FD77B671665F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EF17020-CA55-A320-587A-FD77B671665F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EF17020-CA55-A320-587A-FD77B671665F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EF17020-CA55-A320-587A-FD77B671665F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EF17020-CA55-A320-587A-FD77B671665F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
