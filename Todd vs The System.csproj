@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AimFunc.cs" />
+    <Compile Include="Assets\Scripts\GameValues.cs" />
     <Compile Include="Assets\Scripts\MenuMain.cs" />
     <Compile Include="Assets\Scripts\PO.cs" />
     <Compile Include="Assets\Scripts\PlayerPlatformerController.cs" />

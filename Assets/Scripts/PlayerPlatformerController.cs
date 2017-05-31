@@ -7,14 +7,18 @@ public class PlayerPlatformerController : PO {
     public float maxSpeed = 15;
     public float jumpTakeOffSpeed = 15;
     public bool canDJ;
+    static int score;
+
+    //Set back to private non static when the gravity functions are moved back to this script from PO.cs
+    //private SpriteRenderer spriteRenderer;
+    public static SpriteRenderer spriteRenderer;
+
+    //private Animator animator;
 
     void Start()
     {
-
+        spriteRenderer.flipX = false;
     }
-
-    private SpriteRenderer spriteRenderer;
-    //private Animator animator;
 
     // Use this for initialization
     void Awake()
@@ -41,6 +45,7 @@ public class PlayerPlatformerController : PO {
 
         if (Input.GetButtonDown("Jump"))
         {
+            score++;
             if (grounded)
             {
                 velocity.y = jumpTakeOffSpeed;
@@ -63,11 +68,19 @@ public class PlayerPlatformerController : PO {
             }
         }
 
-        bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < 0.01f));
-        if (flipSprite)
+        if (move.x > 0)
         {
-            spriteRenderer.flipX = !spriteRenderer.flipX;
+            spriteRenderer.flipX = false;
         }
+        else if (move.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = spriteRenderer.flipX;
+        }
+
         /*
         animator.SetBool("grounded", grounded);
         animator.SetFloat("velocityX", Mathf.Abs(velocity.x) / maxSpeed);

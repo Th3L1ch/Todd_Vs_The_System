@@ -20,6 +20,7 @@ public class PO : MonoBehaviour
 
     protected const float minMoveDistance = 0.001f;
     protected const float shellRadius = 0.01f;
+    protected bool invertG;
 
     void OnEnable()
     {
@@ -31,12 +32,34 @@ public class PO : MonoBehaviour
         contactFilter.useTriggers = false;
         contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
         contactFilter.useLayerMask = true;
+        invertG = false;
     }
 
     void Update()
     {
         targetVelocity = Vector2.zero;
         ComputeVelocity();
+
+        //Probably need to move these following features to an overwrite in the update function in PlayerPlatformerController script.
+
+        //Experimental option where flipping the y orientation of the sprite will invert gravity's direction. 
+        //Currently working for all objects on screen including Todd
+        if (PlayerPlatformerController.spriteRenderer.flipY == true && invertG == false )
+        {
+            invertG = true;
+            gravityModifier *= -1;
+        }
+        if (PlayerPlatformerController.spriteRenderer.flipY == false && invertG == true)
+        {
+            invertG = false;
+            gravityModifier *= -1;
+        }
+        //Original idea was to invert gravity for all including Todd, but this could be its own thing
+        //currently inverts gravity for everyone and everything except Todd
+        if (Input.GetMouseButton(1))
+        {
+            PlayerPlatformerController.spriteRenderer.flipY = !PlayerPlatformerController.spriteRenderer.flipY;
+        }
     }
 
     protected virtual void ComputeVelocity()
