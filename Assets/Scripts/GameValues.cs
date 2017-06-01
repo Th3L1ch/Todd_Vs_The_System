@@ -16,6 +16,7 @@ public class GameValues : MonoBehaviour {
 
     void Awake()
     {
+        Application.targetFrameRate = 60;
         DontDestroyOnLoad(transform.gameObject);
     }
 }
